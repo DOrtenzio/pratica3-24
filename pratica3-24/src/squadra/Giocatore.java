@@ -56,6 +56,12 @@ public class Giocatore {
         this.goal=goal;
     }
 
-
+    public boolean controllaCapitani (Giocatore [] squadra, int indexInseriti){
+        for (int i=0;i<indexInseriti;i++){
+            if ( squadra[i].isCapitano() )
+                return true;
+        }
+        return  false;
+    }
 }
 

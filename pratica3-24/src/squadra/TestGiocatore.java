@@ -6,7 +6,7 @@ public class TestGiocatore {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         Giocatore [] squadra=new Giocatore[100];
-        int scelta;
+        int scelta, indexInseriti=0, gol;
 
         do {
             System.out.println("Scegli una fra le sceguenti opzioni: " +
@@ -20,7 +20,21 @@ public class TestGiocatore {
             scelta=Integer.parseInt(in.next());
             switch (scelta){
                 case 0:
-
+                    System.out.println("Stai inserendo un nuovo giocatore: \n Inseriti il suo nome:");
+                    squadra[indexInseriti]=new Giocatore(in.next());
+                    do {
+                        System.out.println("Inserire il numero di goal: ");
+                        gol=Integer.parseInt(in.next());
+                        if (gol<0)
+                            System.out.println("Inserire numero corretto di gol");
+                    }while (gol<0);
+                    squadra[indexInseriti].setGoal(gol);
+                    if (!squadra[indexInseriti].controllaCapitani(squadra,indexInseriti)) {
+                            System.out.println("E' capitano? true/false");
+                            squadra[indexInseriti].setCapitano(in.nextBoolean());
+                    }
+                    System.out.println("Inserito");
+                    break;
                 case 1:
 
                 case 2:
