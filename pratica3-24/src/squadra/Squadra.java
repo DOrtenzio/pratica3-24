@@ -16,7 +16,8 @@ public class Squadra {
                     "\n 3) cancellare un giocatore dalla squadra;" +
                     "\n 4) visualizzare i giocatori che hanno realizzato più di 5 goal;" +
                     "\n 5) visualizzare il nome del capitano;" +
-                    "\n 6) assegnare il ruolo di capitano in modo casuale se non ancora presente.");
+                    "\n 6) assegnare il ruolo di capitano in modo casuale se non ancora presente;" +
+                    "\n 7) esci");
             scelta=Integer.parseInt(in.next());
             switch (scelta){
                 case 0:
@@ -35,7 +36,7 @@ public class Squadra {
                             if (gol<0)
                                 System.out.println("Inserire numero corretto di gol");
                         }while (gol<0);
-                        if (squadra[indexInseriti].controllaCapitani(squadra,indexInseriti)==-1) {
+                        if (indexInseriti==0 || squadra[indexInseriti-1].controllaCapitani(squadra,indexInseriti)==-1) {
                             System.out.println("E' capitano? true/false");
                             isCapitano=in.nextBoolean();
                         }
@@ -138,6 +139,7 @@ public class Squadra {
                         }
                         System.out.println("----------");
                     }
+                    break;
                 case 5:
                     if(indexInseriti==0)
                         System.out.println("Nessun componente ancora inserito");
@@ -149,6 +151,7 @@ public class Squadra {
                             System.out.println("Nome: "+squadra[i].getNome()+"\t Capitano:"+squadra[i].isCapitano()+"\t Gol:"+squadra[i].getGoal());
                         System.out.println("----------");
                     }
+                    break;
                 case 6:
                     if(indexInseriti==0)
                         System.out.println("Nessun componente ancora inserito");
@@ -164,6 +167,7 @@ public class Squadra {
                         System.out.println("Nome: "+squadra[i].getNome()+"\t Capitano:"+squadra[i].isCapitano()+"\t Gol:"+squadra[i].getGoal());
                         System.out.println("----------");
                     }
+                    break;
                 case 7:
                     System.out.println("Ciao");
                     break;
