@@ -55,5 +55,7 @@ public class Giocatore {
         this.capitano=capitano;
         this.goal=goal;
     }
+
+
 }
 
